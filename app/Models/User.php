@@ -58,4 +58,9 @@ class User extends Authenticatable
     {
         return in_array($this->role, $roles, true);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

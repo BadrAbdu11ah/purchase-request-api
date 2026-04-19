@@ -1,0 +1,41 @@
+run server:
+    php artisan serve --host=0.0.0.0
+
+take IPv4 Address:
+    ipconfig
+
+creat controller:
+    php artisan make:controller nameController
+
+clean cash:
+    php artisan config:clear
+    php artisan route:clear
+
+creat or make => Model, Migration, Controller:
+    php artisan make:model nameModel -mcr
+
+add table in databace:
+    php artisan migrate
+    
+refresh table:
+    php artisan migrate:refresh --path=/database/migrations/2026_02_19_134006_create_products_table.php
+
+add column in table:
+    php artisan make:migration add_new_column_to_addresses_table --table=addresses
+    
+cash clear:
+    php artisan config:clear
+
+github:
+echo "# laravel-store-backend" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/BadrAbdu11ah/laravel-store-backend.git
+git push -u origin main
+
+…or push an existing repository from the command line:
+git remote add origin https://github.com/BadrAbdu11ah/laravel-store-backend.git
+git branch -M main
+git push -u origin main

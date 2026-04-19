@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->integer('price')->default(0); // السعر الحالي
             $table->string('unit'); // كيلو، كرتون، حبة
             $table->decimal('min_limit', 8, 2)->default(0); // الحد الأدنى للتنبيه
             $table->timestamps();

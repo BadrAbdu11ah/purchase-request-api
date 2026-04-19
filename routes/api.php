@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Api\dashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/register', [AuthController::class, 'register']);
@@ -27,6 +28,8 @@ Route::middleware('auth.api')->group(function () {
 
         Route::get('/show/{id}', [OrderController::class, 'show'])
             ->middleware('role:purchasing_officer,store_keeper');
+        Route::delete('/delete/{id}', [OrderController::class, 'destroy'])
+            ->middleware('role:store_keeper');
     });
 
     Route::prefix('categories')->group(function () {
@@ -65,4 +68,8 @@ Route::middleware('auth.api')->group(function () {
 
     Route::get('/products-list', [OrderController::class, 'getProducts'])
         ->middleware('role:store_keeper,purchasing_officer');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->middleware('role:store_keeper,purchasing_officer');
+    
 });

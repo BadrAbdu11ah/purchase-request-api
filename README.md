@@ -1,59 +1,236 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Purchase Request API - Backend
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
 
-## About Laravel
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Laravel](https://img.shields.io/badge/Laravel-12.0+-red)
+![PHP](https://img.shields.io/badge/PHP-8.2+-blue)
+![License](https://img.shields.io/badge/license-MIT-purple)
+![API](https://img.shields.io/badge/API-RESTful-green)
+![Frontend](https://img.shields.io/badge/Frontend-Flutter-blue)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> API RESTful متقدمة لإدارة طلبات الشراء - جزء Backend من المشروع الكامل
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+[التثبيت](#-التثبيت) • [API Endpoints](#-api-endpoints) • [الأمان](#-الأمان) • [Frontend](#-frontend)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</div>
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 📱 المشروع الكامل (Full Stack)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| الجزء | التقنية | الرابط |
+|------|--------|--------|
+| **Frontend** | Flutter 3.8+ | [purchase_request_manager](https://github.com/BadrAbdu11ah/purchase_request_manager) |
+| **Backend** | Laravel 12 | [purchase-request-api](https://github.com/BadrAbdu11ah/purchase-request-api) ← أنت هنا |
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🎯 المميزات الرئيسية
 
-### Premium Partners
+- ✅ **المصادقة الآمنة** - Token-based Authentication
+- ✅ **التحكم بالصلاحيات** - Admin, Purchasing Officer, Store Keeper
+- ✅ **إدارة الطلبات والمنتجات والفئات**
+- ✅ **Dashboard وإحصائيات**
+- ✅ **معمارية نظيفة** - Clean Architecture + Repository Pattern
+- ✅ **معالجة أخطاء شاملة**
+- ✅ **اختبارات شاملة** - Unit & Feature Tests
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 📋 المتطلبات
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| المتطلب | الإصدار |
+|--------|--------|
+| **PHP** | 8.2+ |
+| **Composer** | 2.0+ |
+| **MySQL** | 8.0+ |
+| **Node.js** | 16.0+ (اختياري) |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📥 التثبيت
 
-## Security Vulnerabilities
+### 1️⃣ استنساخ المشروع
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone https://github.com/BadrAbdu11ah/purchase-request-api.git
+cd purchase-request-api
+```
 
-## License
+### 2️⃣ تثبيت الاعتماديات
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer install
+npm install  # اختياري
+```
+
+### 3️⃣ إعداد البيئة
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4️⃣ إعداد قاعدة البيانات
+
+```bash
+# تحديث بيانات الاتصال في .env أولاً
+php artisan migrate --seed
+```
+
+### 5️⃣ تشغيل الخادم
+
+```bash
+php artisan serve
+```
+
+**الخادم سيكون متاح على:** `http://localhost:8000`
+
+---
+
+## 🔐 متغيرات البيئة (.env)
+
+```env
+APP_NAME="Purchase Request API"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=purchase_request_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+---
+
+## 📡 API Endpoints
+
+### 🔐 المصادقة
+
+```http
+POST   /api/auth/register         # تسجيل
+POST   /api/auth/login            # دخول
+GET    /api/auth/me               # بيانات المستخدم
+POST   /api/auth/logout           # خروج
+```
+
+### 📦 الطلبات
+
+```http
+GET    /api/orders                # جميع الطلبات
+POST   /api/orders/store          # إنشاء طلب
+GET    /api/orders/{id}           # تفاصيل الطلب
+POST   /api/orders/{id}/update-status  # تحديث الحالة
+```
+
+### 🏷️ الفئات والمنتجات
+
+```http
+GET    /api/categories            # الفئات
+GET    /api/products              # المنتجات
+POST   /api/products              # إنشاء منتج
+PUT    /api/products/{id}         # تحديث المنتج
+DELETE /api/products/{id}         # حذف المنتج
+```
+
+### 📈 Dashboard
+
+```http
+GET    /api/dashboard/statistics  # الإحصائيات
+GET    /api/dashboard/orders-report
+```
+
+---
+
+## 🧪 الاختبارات
+
+```bash
+# تشغيل الاختبارات
+php artisan test
+
+# مع التغطية
+php artisan test --coverage
+
+# اختبار محدد
+php artisan test tests/Feature/OrderTest.php
+```
+
+---
+
+## 🔐 الأمان
+
+- ✅ تشفير كلمات المرور (bcrypt)
+- ✅ CORS/CSRF Protection
+- ✅ Input Validation
+- ✅ Rate Limiting
+- ✅ SQL Injection Prevention
+- ✅ Secure Token Authentication
+
+---
+
+## 🛠 أوامر مفيدة
+
+```bash
+# توليد Model مع Migration و Controller
+php artisan make:model ModelName -mcr
+
+# تشغيل الهجرات
+php artisan migrate
+
+# إعادة تعيين قاعدة البيانات
+php artisan migrate:refresh --seed
+
+# عرض جميع المسارات
+php artisan route:list
+
+# مسح الـ Cache
+php artisan optimize:clear
+```
+
+---
+
+## 📊 قاعدة البيانات
+
+الجداول الرئيسية:
+- **users** - جدول المستخدمين
+- **roles** - جدول الأدوار
+- **orders** - جدول الطلبات
+- **order_items** - تفاصيل الطلبات
+- **products** - جدول المنتجات
+- **categories** - جدول الفئات
+
+---
+
+## 📱 Frontend
+
+للمزيد من التفاصيل حول التطبيق الكامل وواجهة المستخدم:
+
+👉 **[اضغط هنا لعرض Frontend README](https://github.com/BadrAbdu11ah/purchase_request_manager)**
+
+---
+
+## 📧 التواصل
+
+- 📬 البريد: Badrhaje2@gmail.com
+- 💼 LinkedIn: [Badr Haje](https://www.linkedin.com/in/badr-haje-21073a39b)
+- 🐙 GitHub: [@BadrAbdu11ah](https://github.com/BadrAbdu11ah)
+
+---
+
+## 📝 الترخيص
+
+هذا المشروع مرخص تحت رخصة MIT - انظر [LICENSE](LICENSE) للمزيد.
+
+---
+
+<div align="center">
+
+**⭐ إذا أعجبك المشروع، لا تنسَ إضافة نجمة!**
+
+[Back to top ⬆️](#-purchase-request-api---backend)
+
+</div>
